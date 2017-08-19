@@ -1,71 +1,94 @@
 <html>
   <head>
     <link rel='stylesheet' href='style.css'/>
+    <link rel='stylesheet' href='slideout.css'/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div class='toolbar'>
-      <span>Blogger App</span>
+    <nav id='menu'>
+      <header>
+        <h2>Menu</h2>
+      </header>
+    </nav>
 
-      <img
-        class='avatar'
-        src="http://orig07.deviantart.net/c91f/f/2010/014/b/c/avatar_by_eggar919.jpg"
-      />
-    </div>
+    <main id="panel">
+      <div class='toolbar'>
+        <img class='menu-icon' src='images/menu.svg'/>
+        <span>Blogger App</span>
+        <span class='toolbar-spacer'></span>
 
-    <div class='main-container'>
-      <div class='post'>
-        <h3>Receta para hacer pastafrola</h3>
-        <p>por John Doe, 15/07/2016</p>
+        <img
+          class='avatar'
+          src="http://orig07.deviantart.net/c91f/f/2010/014/b/c/avatar_by_eggar919.jpg"
+        />
       </div>
 
-      <div class='post'>
-        <h3>Receta para hacer pastafrola</h3>
-        <p>por John Doe, 15/07/2016</p>
+      <div class='main-container'>
+        <div class='post'>
+          <h3>Receta para hacer pastafrola</h3>
+          <p>por John Doe, 15/07/2016</p>
+          <span class='ribbon new-post'>Nuevo</span>
+        </div>
+
+        <div class='post'>
+          <h3>Receta para hacer pastafrola</h3>
+          <p>por John Doe, 15/07/2016</p>
+        </div>
+
+        <div class='post'>
+          <h3>Receta para hacer pastafrola</h3>
+          <p>por John Doe, 15/07/2016</p>
+        </div>
+
+        <div class='post'>
+          <h3>Receta para hacer pastafrola</h3>
+          <p>por John Doe, 15/07/2016</p>
+        </div>
+
+        <div class='post'>
+          <h3>Receta para hacer pastafrola</h3>
+          <p>por John Doe, 15/07/2016</p>
+        </div>
+
+        <div class='post'>
+          <h3>Receta para hacer pastafrola</h3>
+          <p>por John Doe, 15/07/2016</p>
+        </div>
+
+        <div class='post'>
+          <h3>Receta para hacer pastafrola</h3>
+          <p>por John Doe, 15/07/2016</p>
+        </div>
+
+        <div class='post'>
+          <h3>Receta para hacer pastafrola</h3>
+          <p>por John Doe, 15/07/2016</p>
+        </div>
+
+        <div class='post'>
+          <h3>Receta para hacer pastafrola</h3>
+          <p>por John Doe, 15/07/2016</p>
+        </div>
+
+        <div class='post'>
+          <h3>Receta para hacer pastafrola</h3>
+          <p>por John Doe, 15/07/2016</p>
+        </div>
       </div>
 
-      <div class='post'>
-        <h3>Receta para hacer pastafrola</h3>
-        <p>por John Doe, 15/07/2016</p>
-      </div>
+      <footer>
+        Copyright NakaWorkshop 2017
+      </footer>
+    </main>
 
-      <div class='post'>
-        <h3>Receta para hacer pastafrola</h3>
-        <p>por John Doe, 15/07/2016</p>
-      </div>
-
-      <div class='post'>
-        <h3>Receta para hacer pastafrola</h3>
-        <p>por John Doe, 15/07/2016</p>
-      </div>
-
-      <div class='post'>
-        <h3>Receta para hacer pastafrola</h3>
-        <p>por John Doe, 15/07/2016</p>
-      </div>
-
-      <div class='post'>
-        <h3>Receta para hacer pastafrola</h3>
-        <p>por John Doe, 15/07/2016</p>
-      </div>
-
-      <div class='post'>
-        <h3>Receta para hacer pastafrola</h3>
-        <p>por John Doe, 15/07/2016</p>
-      </div>
-
-      <div class='post'>
-        <h3>Receta para hacer pastafrola</h3>
-        <p>por John Doe, 15/07/2016</p>
-      </div>
-
-      <div class='post'>
-        <h3>Receta para hacer pastafrola</h3>
-        <p>por John Doe, 15/07/2016</p>
-      </div>
-    </div>
-
-    <footer>
-      Copyright NakaWorkshop 2017
-    </footer>
+    <script>
+      var slideout = new Slideout({
+        'panel': document.getElementById('panel'),
+        'menu': document.getElementById('menu'),
+        'padding': 256,
+        'tolerance': 70
+      });
+    </script>
   </body>
 </html>
