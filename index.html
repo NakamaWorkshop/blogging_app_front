@@ -2,19 +2,22 @@
   <head>
     <link rel='stylesheet' href='style.css'/>
     <link rel='stylesheet' href='slideout.css'/>
+    <link rel='stylesheet' href='ribbon.css'/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <nav id='menu'>
-      <header>
-        <h2>Menu</h2>
-      </header>
+      <div class='toolbar'></div>
+      <div class='sticky-toolbar-spacer'></div>
+      <h2>Link 1</h2>
+      <h2>Link 2</h2>
+      <h2>Link 3</h2>
     </nav>
 
     <main id="panel">
       <div class='toolbar'>
-        <img class='menu-icon' src='images/menu.svg'/>
+        <img class='menu-icon' src='images/menu.svg' onclick='slideout.toggle()'/>
         <span>Blogger App</span>
         <span class='toolbar-spacer'></span>
 
@@ -24,58 +27,82 @@
         />
       </div>
 
+      <div class='sticky-toolbar-spacer'></div>
+
       <div class='main-container'>
-        <div class='post'>
-          <h3>Receta para hacer pastafrola</h3>
-          <p>por John Doe, 15/07/2016</p>
-          <span class='ribbon new-post'>Nuevo</span>
-        </div>
+        <div class='posts-container'>
+          <div class='post'>
+            <h3>Receta para hacer pastafrola</h3>
+            <p>por John Doe, 15/07/2016</p>
+            <div class='ribbon-wrapper-green'>
+              <div class='ribbon-green'>NUEVO</div>
+            </div>
+          </div>
 
-        <div class='post'>
-          <h3>Receta para hacer pastafrola</h3>
-          <p>por John Doe, 15/07/2016</p>
-        </div>
+          <div class='post'>
+            <h3>Receta para hacer pastafrola</h3>
+            <p>por John Doe, 15/07/2016</p>
+          </div>
 
-        <div class='post'>
-          <h3>Receta para hacer pastafrola</h3>
-          <p>por John Doe, 15/07/2016</p>
-        </div>
+          <div class='post'>
+            <h3>Receta para hacer pastafrola</h3>
+            <p>por John Doe, 15/07/2016</p>
+          </div>
 
-        <div class='post'>
-          <h3>Receta para hacer pastafrola</h3>
-          <p>por John Doe, 15/07/2016</p>
-        </div>
+          <div class='post'>
+            <h3>Receta para hacer pastafrola</h3>
+            <p>por John Doe, 15/07/2016</p>
+          </div>
 
-        <div class='post'>
-          <h3>Receta para hacer pastafrola</h3>
-          <p>por John Doe, 15/07/2016</p>
-        </div>
+          <div class='post'>
+            <h3>Receta para hacer pastafrola</h3>
+            <p>por John Doe, 15/07/2016</p>
+          </div>
 
-        <div class='post'>
-          <h3>Receta para hacer pastafrola</h3>
-          <p>por John Doe, 15/07/2016</p>
-        </div>
+          <div class='post'>
+            <h3>Receta para hacer pastafrola</h3>
+            <p>por John Doe, 15/07/2016</p>
+          </div>
 
-        <div class='post'>
-          <h3>Receta para hacer pastafrola</h3>
-          <p>por John Doe, 15/07/2016</p>
-        </div>
+          <div class='post'>
+            <h3>Receta para hacer pastafrola</h3>
+            <p>por John Doe, 15/07/2016</p>
+          </div>
 
-        <div class='post'>
-          <h3>Receta para hacer pastafrola</h3>
-          <p>por John Doe, 15/07/2016</p>
-        </div>
+          <div class='post'>
+            <h3>Receta para hacer pastafrola</h3>
+            <p>por John Doe, 15/07/2016</p>
+          </div>
 
-        <div class='post'>
-          <h3>Receta para hacer pastafrola</h3>
-          <p>por John Doe, 15/07/2016</p>
-        </div>
+          <div class='post'>
+            <h3>Receta para hacer pastafrola</h3>
+            <p>por John Doe, 15/07/2016</p>
+          </div>
 
-        <div class='post'>
-          <h3>Receta para hacer pastafrola</h3>
-          <p>por John Doe, 15/07/2016</p>
+          <div class='post'>
+            <h3>Receta para hacer pastafrola</h3>
+            <p>por John Doe, 15/07/2016</p>
+          </div>
+        </div> <!-- aca termina el .posts-container -->
+
+        <div class='right-sidenav'>
+          <form class='post-form'>
+            <div class='form-group'>
+              <label>Título</label>
+              <input></input>
+            </div>
+
+            <div class='form-group'>
+              <label>Cuerpo</label>
+              <textarea></textarea>
+            </div>
+
+            <div class='form-group'>
+              <button>Crear post</button>
+            </div>
+          </form>
         </div>
-      </div>
+      </div> <!-- aca termina el .main-container -->
 
       <footer>
         Copyright NakaWorkshop 2017
