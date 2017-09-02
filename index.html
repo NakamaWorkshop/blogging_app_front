@@ -3,8 +3,10 @@
     <link rel='stylesheet' href='style.css'/>
     <link rel='stylesheet' href='slideout.css'/>
     <link rel='stylesheet' href='ribbon.css'/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
     <nav id='menu'>
@@ -31,70 +33,16 @@
 
       <div class='main-container'>
         <div class='posts-container'>
-          <div class='post'>
-            <h3>Receta para hacer pastafrola</h3>
-            <p>por John Doe, 15/07/2016</p>
-            <div class='ribbon-wrapper-green'>
-              <div class='ribbon-green'>NUEVO</div>
-            </div>
-          </div>
-
-          <div class='post'>
-            <h3>Receta para hacer pastafrola</h3>
-            <p>por John Doe, 15/07/2016</p>
-          </div>
-
-          <div class='post'>
-            <h3>Receta para hacer pastafrola</h3>
-            <p>por John Doe, 15/07/2016</p>
-          </div>
-
-          <div class='post'>
-            <h3>Receta para hacer pastafrola</h3>
-            <p>por John Doe, 15/07/2016</p>
-          </div>
-
-          <div class='post'>
-            <h3>Receta para hacer pastafrola</h3>
-            <p>por John Doe, 15/07/2016</p>
-          </div>
-
-          <div class='post'>
-            <h3>Receta para hacer pastafrola</h3>
-            <p>por John Doe, 15/07/2016</p>
-          </div>
-
-          <div class='post'>
-            <h3>Receta para hacer pastafrola</h3>
-            <p>por John Doe, 15/07/2016</p>
-          </div>
-
-          <div class='post'>
-            <h3>Receta para hacer pastafrola</h3>
-            <p>por John Doe, 15/07/2016</p>
-          </div>
-
-          <div class='post'>
-            <h3>Receta para hacer pastafrola</h3>
-            <p>por John Doe, 15/07/2016</p>
-          </div>
-
-          <div class='post'>
-            <h3>Receta para hacer pastafrola</h3>
-            <p>por John Doe, 15/07/2016</p>
-          </div>
-        </div> <!-- aca termina el .posts-container -->
+        </div>
 
         <div class='right-sidenav'>
-          <form class='post-form'>
+          <form class='js-post-form'>
             <div class='form-group'>
-              <label>Título</label>
-              <input></input>
+              <input placeholder='Título' name='title'></input>
             </div>
 
             <div class='form-group'>
-              <label>Cuerpo</label>
-              <textarea></textarea>
+              <textarea placeholder='Cuerpo' name='body'></textarea>
             </div>
 
             <div class='form-group'>
@@ -115,6 +63,28 @@
         'menu': document.getElementById('menu'),
         'padding': 256,
         'tolerance': 70
+      });
+
+      $('.js-post-form').submit(ev => {
+        ev.preventDefault();
+
+        var $titleInput = $('input[name="title"]');
+        var $bodyInput = $('textarea[name="body"]');
+
+        var title = $titleInput.val();
+        var body = $bodyInput.val();
+
+        var $post = $(`
+          <div class='post'>
+            <h3>${title}</h3>
+            <p>${body}</p>
+          </div>
+        `);
+
+        $('.posts-container').append($post);
+
+        $titleInput.val('');
+        $bodyInput.val('');
       });
     </script>
   </body>

@@ -35,6 +35,7 @@ body {
 
 .main-container {
   display: flex;
+  min-height: calc(100vh - 119px);
 }
 
 .sticky-toolbar-spacer {
