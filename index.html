@@ -4,14 +4,34 @@
     <link rel='stylesheet' href='slideout.css'/>
     <link rel='stylesheet' href='ribbon.css'/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
+    <backdrop>
+      <popup>
+        <div class='toolbar'>Ingresa a este sitio</div>
+
+        <form class='js-login-form'>
+          <div class='form-group'>
+            <input name='email' placeholder='Email' type='email' required/>
+          </div>
+
+          <div class='form-group'>
+            <input name='password' placeholder='Contraseña' type='password' required/>
+          </div>
+
+          <div class='form-group'>
+            <button type='submit'>Entrar</button>
+          </div>
+        </form>
+      </popup>
+    </backdrop>
+
     <nav id='menu'>
       <div class='toolbar'></div>
-      <div class='sticky-toolbar-spacer'></div>
       <h2>Link 1</h2>
       <h2>Link 2</h2>
       <h2>Link 3</h2>
@@ -29,8 +49,6 @@
         />
       </div>
 
-      <div class='sticky-toolbar-spacer'></div>
-
       <div class='main-container'>
         <div class='posts-container'>
         </div>
@@ -38,11 +56,11 @@
         <div class='right-sidenav'>
           <form class='js-post-form'>
             <div class='form-group'>
-              <input placeholder='Título' name='title'></input>
+              <input placeholder='Título' name='title' required></input>
             </div>
 
             <div class='form-group'>
-              <textarea placeholder='Cuerpo' name='body'></textarea>
+              <textarea placeholder='Cuerpo' name='body' required></textarea>
             </div>
 
             <div class='form-group'>
@@ -57,35 +75,6 @@
       </footer>
     </main>
 
-    <script>
-      var slideout = new Slideout({
-        'panel': document.getElementById('panel'),
-        'menu': document.getElementById('menu'),
-        'padding': 256,
-        'tolerance': 70
-      });
-
-      $('.js-post-form').submit(ev => {
-        ev.preventDefault();
-
-        var $titleInput = $('input[name="title"]');
-        var $bodyInput = $('textarea[name="body"]');
-
-        var title = $titleInput.val();
-        var body = $bodyInput.val();
-
-        var $post = $(`
-          <div class='post'>
-            <h3>${title}</h3>
-            <p>${body}</p>
-          </div>
-        `);
-
-        $('.posts-container').append($post);
-
-        $titleInput.val('');
-        $bodyInput.val('');
-      });
-    </script>
+    <script src='app.js'></script>
   </body>
 </html>

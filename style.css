@@ -5,6 +5,41 @@
   box-sizing:  border-box;
 }
 
+@keyframes slideFromBottom {
+   from { top: 100%; }
+}
+
+form {
+  margin: 0;
+}
+
+backdrop {
+  display: block;
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+popup {
+  display: block;
+  width: 200px;
+  position: fixed;
+  z-index: 10;
+  left: calc(50% - 100px);
+  top: calc(30% - 150px);
+
+  animation-name: slideFromBottom;
+  animation-duration: 1s;
+
+  background-color: whitesmoke;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
 body {
   margin: 0;
 }
@@ -71,8 +106,8 @@ img.avatar {
 
 .toolbar {
   display:          flex;
-  position:         fixed;
-  z-index:          1;
+  /*position:         fixed;*/
+  /*z-index:          1;*/
   width:            100%;
   min-height:       60px;
   justify-content:  space-between;
