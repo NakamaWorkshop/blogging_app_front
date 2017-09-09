@@ -1,8 +1,9 @@
 <html>
   <head>
-    <link rel='stylesheet' href='style.css'/>
-    <link rel='stylesheet' href='slideout.css'/>
-    <link rel='stylesheet' href='ribbon.css'/>
+    <link rel='stylesheet' href='style.css' type="text/css"/>
+    <link rel='stylesheet' href='slideout.css' type="text/css"/>
+    <link rel='stylesheet' href='ribbon.css' type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 
@@ -10,23 +11,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <backdrop>
+    <backdrop style='display: none;'>
       <popup>
         <div class='toolbar'>Ingresa a este sitio</div>
 
-        <form class='js-login-form'>
-          <div class='form-group'>
-            <input name='email' placeholder='Email' type='email' required/>
+        <div class='row'>
+          <div class='col-xs-6'>
+            <form class='js-login-form'>
+              <div class='form-group'>
+                <input name='email' placeholder='Email' type='email' required/>
+              </div>
+
+              <div class='form-group'>
+                <input name='password' placeholder='Contraseña' type='password' required/>
+              </div>
+
+              <div class='form-group'>
+                <button class='btn btn-block' type='submit'>Entrar</button>
+              </div>
+            </form>
           </div>
 
-          <div class='form-group'>
-            <input name='password' placeholder='Contraseña' type='password' required/>
-          </div>
+          <div class='col-xs-6'>
+            <form class='js-register-form'>
+              <div class='form-group'>
+                <input name='email' placeholder='Email' type='email' required/>
+              </div>
 
-          <div class='form-group'>
-            <button type='submit'>Entrar</button>
+              <div class='form-group'>
+                <input name='password' placeholder='Contraseña' type='password' required/>
+              </div>
+
+              <div class='form-group'>
+                <input name='passwordConfirmation' placeholder='Repetir contraseña' type='password' required/>
+              </div>
+
+              <button class='btn btn-block' type='submit'>Registrarse</button>
+            </form>
           </div>
-        </form>
+        </div>
       </popup>
     </backdrop>
 
@@ -42,6 +65,8 @@
         <img class='menu-icon' src='images/menu.svg' onclick='slideout.toggle()'/>
         <span>Blogger App</span>
         <span class='toolbar-spacer'></span>
+
+        <button class='btn js-login-button'>Ingresar</button>
 
         <img
           class='avatar'
@@ -63,9 +88,7 @@
               <textarea placeholder='Cuerpo' name='body' required></textarea>
             </div>
 
-            <div class='form-group'>
-              <button>Crear post</button>
-            </div>
+            <button class='btn btn-block'>Crear post</button>
           </form>
         </div>
       </div> <!-- aca termina el .main-container -->
