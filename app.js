@@ -13,37 +13,47 @@ $('body').click(ev => {
   if (ev.target == $('backdrop')[0]) $('backdrop').fadeOut();
 });
 
+var users = loadUsers();
+
 $('.js-login-form').submit(ev => {
   ev.preventDefault();
+
+  var $form       = $(ev.target);
+  var inputValues = collectInputValues($form);
+  var user        = users.find(u => u.email === inputValues.email);
+
+  if (!user) return alert('No existe un usuario con ese email');
+
+  if (user.password === inputValues.password) {
+    alert('Bienvenidos!');
+    $('backdrop').fadeOut(1000);
+  }
+
+  resetInputValues($form);
 });
 
-var users = [];
-
-// Ejemplo de uso de .find() o filter():
-[1,2,3,4].find(e => e % 2 === 0);;
-[{color: 'red'}].find(e => e.color === 'red');
-if ([{color: 'rd'}].find(e => e.color === 'red')) alert('lo encontre!');
-if ([{color: 'red'}].find(e => e.color === 'red')) alert('lo encontre!');
-
-// Tarea para el hogar:
-//  - nodejar registrarse si ya existe un usuario con el mismo email
-//  - no dejar registrarse sino concide la contraseña y la confirmación de contraseña
 $('.js-register-form').submit(ev => {
   ev.preventDefault();
 
   var $form       = $(ev.target);
   var inputValues = collectInputValues($form);
 
+  if (users.find(u => u.email === inputValues.email))
+    return alert('El usuario con ese email ya existe');
 
-  if (condition) {
+  if (inputValues.password === inputValues.passwordConfirmation) {
     users.push({
       email:    inputValues.email,
       password: inputValues.password
     });
 
+    updateUsers(users);
+
     alert('Gracias por registrarte!');
 
     $('backdrop').fadeOut();
+
+    resetInputValues($form);
   }
 });
 
@@ -82,4 +92,16 @@ function resetInputValues($form) {
   $form
     .find('input, textarea')
     .each((_i, e) => $(e).val(''));
+}
+
+// Usage example:
+//   updateUsers([{email: 'password'}])
+function updateUsers(newValue) {
+  localStorage.setItem('users', JSON.stringify(newValue));
+}
+
+function loadUsers() {
+  var value = JSON.parse(localStorage.getItem('users'));
+  if (value && value.constructor === Array) return value;
+  else return [];
 }
