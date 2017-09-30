@@ -66,11 +66,13 @@
         <span>Blogger App</span>
         <span class='toolbar-spacer'></span>
 
-        <button class='btn js-login-button'>Ingresar</button>
+        <button class='btn js-login-button' style='display: none;'>Ingresar</button>
+        <button class='btn js-logout-button' style='display: none;'>Salir</button>
 
         <img
-          class='avatar'
+          class='avatar js-avatar'
           src="http://orig07.deviantart.net/c91f/f/2010/014/b/c/avatar_by_eggar919.jpg"
+          style='display: none;'
         />
       </div>
 
@@ -79,7 +81,7 @@
         </div>
 
         <div class='right-sidenav'>
-          <form class='js-post-form'>
+          <form class='js-post-form' style='display: none;'>
             <div class='form-group'>
               <input placeholder='Título' name='title' required></input>
             </div>
@@ -98,6 +100,8 @@
       </footer>
     </main>
 
+    <script src='localstorage.js'></script>
+    <script src='auth.js'></script>
     <script src='app.js'></script>
   </body>
 </html>
