@@ -19,6 +19,12 @@ window.Auth = new class Auth {
     }
   }
 
+  logout() {
+    LS.remove('currentUser');
+    delete this.currentUser;
+    this._onCurrentUserChanged(this.currentUser);
+  }
+
   register(inputValues) {
     if (this.users.find(u => u.email === inputValues.email))
       return alert('El usuario con ese email ya existe');
@@ -30,7 +36,7 @@ window.Auth = new class Auth {
       }
 
       this.users.push(user);
-      this._updateUsers(users);
+      this._updateUsers(this.users);
 
       alert('Gracias por registrarte!');
 
@@ -44,10 +50,12 @@ window.Auth = new class Auth {
       $('.js-avatar').show();
       $('.js-login-button').hide();
       $('.js-logout-button').show();
+      $('.js-post-form').show();
     } else {
       $('.js-avatar').hide();
       $('.js-login-button').show();
       $('.js-logout-button').hide();
+      $('.js-post-form').hide();
     }
   }
 

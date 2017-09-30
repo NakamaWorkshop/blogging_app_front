@@ -7,4 +7,6 @@ window.LS = new class {
     var str = localStorage.getItem(key);
     return str && JSON.parse(str);
   }
+
+  remove(key) { localStorage.removeItem(key); }
 };

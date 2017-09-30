@@ -1,3 +1,5 @@
+Post.load();
+
 var slideout = new Slideout({
   panel:     $('#panel')[0],
   menu:      $('#menu')[0],
@@ -5,9 +7,9 @@ var slideout = new Slideout({
   tolerance: 70
 });
 
-$('.js-login-button').click(ev => {
-  $('backdrop').fadeIn(1000);
-});
+$('.js-login-button').click(ev => $('backdrop').fadeIn(1000));
+
+$('.js-logout-button').click(ev => Auth.logout());
 
 $('body').click(ev => {
   if (ev.target == $('backdrop')[0]) $('backdrop').fadeOut();
@@ -34,16 +36,7 @@ $('.js-post-form').submit(ev => {
 
   var $form       = $(ev.target);
   var inputValues = collectInputValues($form);
-
-  var $post = $(`
-    <div class='post'>
-      <h3>${inputValues.title}</h3>
-      <p>${inputValues.body}</p>
-    </div>
-  `);
-
-  $('.posts-container').append($post);
-
+  new Post(inputValues).save();
   resetInputValues($form);
 });
 
